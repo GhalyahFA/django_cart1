@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Dasmoto's Arts & Crafts{% endblock title %}
+
+{%block content%}
+<style>
+   .flex-column {
+       max-width : 260px;
+   }
+
+img {
+  margin: 20px;
+}
+
+</style>
+<div class="hero-image">
+  {% include 'auth_nav.html' %}
+  <div class= "hero-text">
+    <p>Arts & Crafts</p>
+  </div>
+</div>
+{% include 'navbar.html' %}
+
+
+
+<div class="background">
+     <div class="d-flex flex-row flex-wrap justify-content-center">
+  {% for product in products|slice:"4" %}
+      <div class="d-flex flex-column">
+          <img src="{{product.photo.url}}" class="img-fluid">
+      </div>
+  {% endfor %}
+</div>
+ </div>
+
+
+
+{% endblock content%}

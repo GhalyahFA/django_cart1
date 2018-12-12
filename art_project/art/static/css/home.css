@@ -1,0 +1,80 @@
+body,
+html {
+  height: 100%;
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/static/img/pattern.jpg");
+  height: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: scroll;
+}
+.hero-text {
+  font-family: Helvetica;
+  font-size: 100px;
+  font-weight: bold;
+  color: khaki;
+  text-align: center;
+  margin: 50px auto;
+}
+.navbar-secondary {
+  font-family: Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+  overflow: scroll;
+  background-color: khaki;
+}
+
+.auth_nav {
+  font-family: Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.background {
+  background: rgba(240, 230, 140, 0.6);
+  width: 100%;
+  height: 100%;
+}
+
+.flex-column {
+  max-width: 260px;
+}
+
+img {
+  margin: 5px;
+  mix-blend-mode: multiply;
+}
+
+/* profile */
+.jumbotron {
+  background-color: khaki;
+  color: rgba(0, 0, 0);
+}
+#section-header {
+  background-color: khaki;
+  font-family: Helvetica;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgba(0, 0, 0);
+}
+.table-dark.table-bordered {
+  border: 0;
+  width: 97%;
+  margin: 0 auto;
+}
+.card-img-top {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+.card {
+  border-style: none;
+}
+.text-logout {
+  margin: 0 auto;
+}

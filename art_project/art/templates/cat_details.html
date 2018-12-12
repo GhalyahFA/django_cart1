@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'auth_nav.html' %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{category}}</h1>
+  </div>
+</div>
+
+<div class= "card-deck mx-auto" style="width: 50%">
+{% for product in category.products.all  %}
+<div class="card">
+  <img class="card-image-top" src="{{product.photo.url}}" alt="brush image">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.description}}</p>
+      <p class="card-text-small">{{product.price}} KD</p>
+      {% if user.is_authenticated %}
+      {% if product in current_order_products %}
+                <a href="{% url 'cart:order_summary' %}" class="btn btn-warning">Go to Cart</a>
+              {% else %}
+                <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-warning">Add to Cart</a>
+        {% endif %}
+      {% endif %}
+
+  </div>
+</div>
+
+{% endfor %}
+</div>
+
+{% endblock content %}

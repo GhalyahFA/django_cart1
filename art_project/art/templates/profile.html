@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'auth_nav.html' %}
+<!-- Page Content -->
+   <div class="container">
+
+     <!-- Jumbotron Header -->
+     <header class="jumbotron my-4" >
+       <h1 class="display-3">Hello, {{request.user}} !</h1>
+       <p class="lead">Browse through your purhcase history below. </p>
+     </header>
+
+     <!-- Page Features -->
+      <h3 id="section-header">My Supplies</h3>
+        <div class="row text-center">
+         {% for product in user.profile.merchandise.all %}
+          <div class="col-lg-3 col-md-6 mb-4 d-flex flex-row flex-wrap justify-content-center" >
+          <div class="card">
+           <img class="card-img-top" src="{{product.photo.url}}" alt="product photo">
+           <div class="card-body">
+             <h4 class="card-title">{{product.name}} </h4>
+           </div>
+          </div>
+          </div>
+          {% endfor %}
+
+     </div>
+     <!-- /.row -->
+     <h3 id="section-header">Order History</h3>
+
+    <div class="row text-center">
+      <table class="table table-bordered text-center .table-responsive">
+        <thead>
+        <tr>
+          <th scope="col"> Reference Code</th>
+          <th scope="col"> Order Date </th>
+          <th scope="col" > Items </th>
+        </thead>
+        <tbody>
+        </tr>
+        {% for order in user_orders %}
+        <tr>
+          <td>
+          {{order.ref_code}}
+          </td>
+          <td>
+          {{order.date_ordered}}
+        </td>
+        {% for item in order.items.all %}
+        <td>
+              {{item}}
+        </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+      {% endfor %}
+      </table>
+
+
+    </div>
+
+   <!-- /.container -->
+{% endblock content %}
